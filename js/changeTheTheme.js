@@ -20,8 +20,8 @@ export const changeTheTheme = (e) => {
         forecast_card[3].style.background = '#1e1e1e';
         forecast_card[4].style.background = '#1e1e1e';
         weather_search[0].style.background = '#1e1e1e';
-        weather_search[0].style.color = 'black';
-        glass.style.color = 'black';
+        weather_search[0].style.color = 'white';
+        glass.style.color = 'white';
     } else {
         body.style.background = 'white';
         body.style.color = 'black';
