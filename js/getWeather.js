@@ -1,7 +1,14 @@
+import { displayForecastData } from "./displayForecastData.js";
+
+const weather_search = document.querySelector('.weather_search_form');
+const searchInput = document.querySelector('.weather_search');
 const city = document.querySelector(".weather_city");
 const weather_name = document.querySelector('.weather_name');
 const weather_temperature = document.querySelector(".weather_temperature");
 const weather_icon = document.querySelector(".weather_icon");
+const weather_unit = document.querySelector('.weather_unit');
+const celsius = document.querySelector('.weather_unit_celsius');
+const farenheit = document.querySelector('.weather_unit_farenheit');
 const weather_min = document.querySelector('.weather_min');
 const weather_max = document.querySelector('.weather_max');
 const weather_realfeel = document.querySelector('.weather_realfeel');
@@ -20,6 +27,32 @@ function convertCountryCode(country) {
     return regionNames.of(country)
 }
 
+weather_search.addEventListener('submit', e => {
+    let search = searchInput;
+    e.preventDefault();
+    currCity = search.value;
+    console.log(currCity)
+    getWeather();
+    getForecastData();
+    search.value = "";
+})
+
+celsius.addEventListener('click', () => {
+    if (units !== "metric") {
+        units = "metric";
+        weather_unit.textContent = "Celsius";
+        getWeather();
+    }
+})
+
+farenheit.addEventListener('click', () => {
+    if (units !== "imperial") {
+        units = "imperial";
+        weather_unit.textContent = "Farenheit";
+        getWeather();
+    }
+})
+
 export const getWeather = () => {
     fetch(`${baseUrl}/weather?q=${currCity}&appid=${API_KEY}&units=${units}`).then(res => res.json()).then(data => {
         city.innerHTML = `${data.name}, ${convertCountryCode(data.sys.country)}`;
@@ -32,5 +65,12 @@ export const getWeather = () => {
         weather_humidity.innerHTML = `${data.main.humidity}%`;
         weather_wind.innerHTML = `${data.wind.speed} ${units === "imperial" ? "mph" : "m/s"}`;
         weather_pressure.innerHTML = `${data.main.pressure} hPa`;
+    })
+    getForecastData();
+}
+
+const getForecastData = () => {
+    fetch(`${baseUrl}/forecast?q=${currCity}&appid=${API_KEY}&units=${units}`).then(res => res.json()).then(data => {
+        displayForecastData(data);
     })
 }
