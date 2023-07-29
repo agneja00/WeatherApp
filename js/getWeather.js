@@ -54,6 +54,19 @@ farenheit.addEventListener("click", () => {
   }
 });
 
+export const getCurrentLocation = () => {
+  fetch(`http://www.geoplugin.net/json.gp`)
+    .then((res) => res.json())
+    .then((data) => {
+      let currCity = data.geoplugin_city;
+      getWeather();
+      getForecastData();
+      console.log(currCity);
+    });
+};
+
+location_btn.addEventListener("click", getCurrentLocation);
+
 const getWeather = () => {
   fetch(`${baseUrl}/weather?q=${currCity}&appid=${API_KEY}&units=${units}`)
     .then((res) => res.json())
@@ -81,16 +94,3 @@ const getForecastData = () => {
       displayForecastData(data);
     });
 };
-
-export const getCurrentLocation = () => {
-  fetch(`http://www.geoplugin.net/json.gp`)
-    .then((res) => res.json())
-    .then((data) => {
-      let currCity = data.geoplugin_city;
-      getWeather();
-      getForecastData();
-      console.log(currCity);
-    });
-};
-
-location_btn.addEventListener("click", getCurrentLocation);
