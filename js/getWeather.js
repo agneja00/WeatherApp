@@ -88,6 +88,7 @@ export const getCurrentLocation = () => {
     .then((data) => {
       let currCity = data.geoplugin_city;
       getWeather();
+      getForecastData();
       console.log(currCity);
     });
 };
