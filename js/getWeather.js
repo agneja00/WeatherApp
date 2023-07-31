@@ -54,7 +54,7 @@ farenheit.addEventListener("click", () => {
   }
 });
 
-export const getWeather = () => {
+const getWeather = () => {
   fetch(`${baseUrl}/weather?q=${currCity}&appid=${API_KEY}&units=${units}`)
     .then((res) => res.json())
     .then((data) => {
@@ -85,8 +85,8 @@ const getForecastData = () => {
 export const getCurrentLocation = () => {
   fetch(`http://www.geoplugin.net/json.gp`)
     .then((res) => res.json())
-    .then((data) => {
-      currCity = data.geoplugin_city;
+    .then((dataLocation) => {
+      currCity = dataLocation.geoplugin_city;
       getWeather();
     });
 };
