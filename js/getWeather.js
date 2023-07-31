@@ -32,7 +32,6 @@ weather_search.addEventListener("submit", (e) => {
   let search = searchInput;
   e.preventDefault();
   currCity = search.value;
-  console.log(currCity);
   getWeather();
   getForecastData();
   search.value = "";
@@ -53,6 +52,17 @@ farenheit.addEventListener("click", () => {
     getWeather();
   }
 });
+
+export const getCurrentLocation = () => {
+  fetch(`http://www.geoplugin.net/json.gp`)
+    .then((res) => res.json())
+    .then((dataLocation) => {
+      currCity = dataLocation.geoplugin_city;
+      getWeather();
+    });
+};
+
+location_btn.addEventListener("click", getCurrentLocation);
 
 const getWeather = () => {
   fetch(`${baseUrl}/weather?q=${currCity}&appid=${API_KEY}&units=${units}`)
@@ -81,14 +91,3 @@ const getForecastData = () => {
       displayForecastData(data);
     });
 };
-
-export const getCurrentLocation = () => {
-  fetch(`http://www.geoplugin.net/json.gp`)
-    .then((res) => res.json())
-    .then((dataLocation) => {
-      currCity = dataLocation.geoplugin_city;
-      getWeather();
-    });
-};
-
-location_btn.addEventListener("click", getCurrentLocation);
