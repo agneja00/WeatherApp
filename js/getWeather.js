@@ -20,7 +20,7 @@ const location_btn = document.querySelector(".location_btn");
 const baseUrl = "https://api.openweathermap.org/data/2.5";
 const API_KEY = "250ac7c5ffbe9aa051b541cce46679ac";
 
-let currCity = "Vilnius";
+let currCity = "Bali";
 let units = "metric";
 
 function convertCountryCode(country) {
@@ -31,7 +31,7 @@ function convertCountryCode(country) {
 weather_search.addEventListener("submit", (e) => {
   let search = searchInput;
   e.preventDefault();
-  let currCity = search.value;
+  currCity = search.value;
   console.log(currCity);
   getWeather();
   getForecastData();
@@ -54,20 +54,7 @@ farenheit.addEventListener("click", () => {
   }
 });
 
-export const getCurrentLocation = () => {
-  fetch(`http://www.geoplugin.net/json.gp`)
-    .then((res) => res.json())
-    .then((data) => {
-      let currCity = data.geoplugin_city;
-      getWeather();
-      getForecastData();
-      console.log(currCity);
-    });
-};
-
-location_btn.addEventListener("click", getCurrentLocation);
-
-const getWeather = () => {
+export const getWeather = () => {
   fetch(`${baseUrl}/weather?q=${currCity}&appid=${API_KEY}&units=${units}`)
     .then((res) => res.json())
     .then((data) => {
@@ -94,3 +81,14 @@ const getForecastData = () => {
       displayForecastData(data);
     });
 };
+
+export const getCurrentLocation = () => {
+  fetch(`http://www.geoplugin.net/json.gp`)
+    .then((res) => res.json())
+    .then((data) => {
+      currCity = data.geoplugin_city;
+      getWeather();
+    });
+};
+
+location_btn.addEventListener("click", getCurrentLocation);
