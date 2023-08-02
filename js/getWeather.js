@@ -54,12 +54,11 @@ farenheit.addEventListener("click", () => {
 });
 
 export const getCurrentLocation = () => {
-  fetch(`http://www.geoplugin.net/json.gp`)
+  return fetch(`http://www.geoplugin.net/json.gp`)
     .then((res) => res.json())
     .then((dataLocation) => {
       currCity = dataLocation.geoplugin_city;
       getWeather();
-      getForecastData();
     });
 };
 
