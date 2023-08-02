@@ -54,7 +54,7 @@ farenheit.addEventListener("click", () => {
 });
 
 export const getCurrentLocation = () => {
-  return fetch(`http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx`)
+  return fetch(`http://www.geoplugin.net/json.gp?city=${currCity}`)
     .then((res) => res.json())
     .then((dataLocation) => {
       currCity = dataLocation.geoplugin_city;
