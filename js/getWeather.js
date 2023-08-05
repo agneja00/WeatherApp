@@ -60,6 +60,7 @@ export const getCurrentLocation = () => {
       currCity = dataLocation.city;
       getWeather();
     })
+    .catch((err) => console.error(err));
 };
 
 location_btn.addEventListener("click", getCurrentLocation);
@@ -81,6 +82,7 @@ const getWeather = () => {
       }`;
       weather_pressure.innerHTML = `${data.main.pressure} hPa`;
     })
+    .catch((err) => console.error(err));
   getForecastData();
 };
 
