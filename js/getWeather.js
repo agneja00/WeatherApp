@@ -53,7 +53,7 @@ farenheit.addEventListener("click", () => {
   }
 });
 
-export const getCurrentLocation = () => {
+const getCurrentLocation = () => {
   return fetch(`http://www.geoplugin.net/json.gp?city=${currCity}`)
     .then((res) => res.json())
     .then((dataLocation) => {
@@ -62,7 +62,15 @@ export const getCurrentLocation = () => {
     });
 };
 
-location_btn.addEventListener("click", getCurrentLocation);
+export const currentLocation = async () => {
+  try {
+    await getCurrentLocation()
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+location_btn.addEventListener("click", currentLocation);
 
 const getWeather = () => {
   fetch(`${baseUrl}/weather?q=${currCity}&appid=${API_KEY}&units=${units}`)
