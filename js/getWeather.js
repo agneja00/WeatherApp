@@ -58,9 +58,10 @@ export const getCurrentLocation = () => {
     .then((res) => res.json())
     .then((dataLocation) => {
       currCity = dataLocation.geoplugin_city;
-      getWeather()
+      getWeather();
       return currCity;
-    });
+    })
+    .catch((err) => console.error(err));
 };
 
 location_btn.addEventListener("click", getCurrentLocation);
@@ -81,7 +82,8 @@ const getWeather = () => {
         units === "imperial" ? "mph" : "m/s"
       }`;
       weather_pressure.innerHTML = `${data.main.pressure} hPa`;
-    });
+    })
+    .catch((err) => console.error(err));
   getForecastData();
 };
 
