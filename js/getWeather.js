@@ -17,7 +17,7 @@ const weather_wind = document.querySelector(".weather_wind");
 const weather_pressure = document.querySelector(".weather_pressure");
 const location_btn = document.querySelector(".location_btn");
 
-const baseUrl = "https://api.openweathermap.org/data/2.5";
+const baseUrl = "http://api.openweathermap.org/data/2.5";
 const API_KEY = "250ac7c5ffbe9aa051b541cce46679ac";
 
 let currCity = "Bali";
@@ -54,7 +54,7 @@ farenheit.addEventListener("click", () => {
 });
 
 export const getCurrentLocation = () => {
-  fetch(`http://www.geoplugin.net/json.gp?ip=xx.xx.xx.xx`)
+  fetch("http://www.geoplugin.net/json.gp")
     .then((res) => res.json())
     .then((dataLocation) => {
       currCity = dataLocation.geoplugin_city;
