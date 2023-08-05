@@ -54,13 +54,12 @@ farenheit.addEventListener("click", () => {
 });
 
 export const getCurrentLocation = () => {
-  fetch("http://api.db-ip.com/v2/free/self")
+  fetch("https://api.db-ip.com/v2/free/self")
     .then((res) => res.json())
     .then((dataLocation) => {
       currCity = dataLocation.city;
       getWeather();
     })
-    .catch((err) => console.error(err));
 };
 
 location_btn.addEventListener("click", getCurrentLocation);
@@ -82,7 +81,6 @@ const getWeather = () => {
       }`;
       weather_pressure.innerHTML = `${data.main.pressure} hPa`;
     })
-    .catch((err) => console.error(err));
   getForecastData();
 };
 
