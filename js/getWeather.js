@@ -62,9 +62,10 @@ const getCurrentLocation = () => {
     });
 };
 
-export const currentLocation = async () => {
+export const currentLocation = async (currCity) => {
   try {
     await getCurrentLocation()
+    getWeather(currCity)
   } catch (err) {
     console.log(err)
   }
