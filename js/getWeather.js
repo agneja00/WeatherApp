@@ -54,7 +54,7 @@ farenheit.addEventListener("click", () => {
 });
 
 export const getCurrentLocation = () => {
-  fetch("https://api.db-ip.com/v2/free/self")
+  fetch("http://api.db-ip.com/v2/free/self")
     .then((res) => res.json())
     .then((dataLocation) => {
       currCity = dataLocation.city;
