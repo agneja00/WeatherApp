@@ -1,11 +1,11 @@
 import { changeTheTheme } from "./js/changeTheTheme.js";
-import { currentLocation } from "./js/getWeather.js" 
+import { getCurrentLocation } from "./js/getWeather.js" 
 
 const toggle = document.getElementById("toggleDark");
 const timeEl = document.querySelector(".time");
 const dateEl = document.querySelector(".date");
 
-document.body.addEventListener("load", currentLocation());
+document.body.addEventListener("load", getCurrentLocation());
 
 toggle.addEventListener("click", changeTheTheme);
 

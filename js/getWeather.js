@@ -53,25 +53,17 @@ farenheit.addEventListener("click", () => {
   }
 });
 
-const getCurrentLocation = () => {
+export const getCurrentLocation = () => {
   fetch(`http://www.geoplugin.net/json.gp`)
     .then((res) => res.json())
     .then((dataLocation) => {
       currCity = dataLocation.geoplugin_city;
-      getWeather();
+      getWeather()
+      return currCity;
     });
 };
 
-export const currentLocation = async (currCity) => {
-  try {
-    await getCurrentLocation()
-    getWeather(currCity)
-  } catch (err) {
-    console.log(err)
-  }
-}
-
-location_btn.addEventListener("click", currentLocation);
+location_btn.addEventListener("click", getCurrentLocation);
 
 const getWeather = () => {
   fetch(`${baseUrl}/weather?q=${currCity}&appid=${API_KEY}&units=${units}`)
