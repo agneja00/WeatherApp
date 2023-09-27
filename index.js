@@ -1,8 +1,8 @@
 import { changeTheTheme } from "./js/changeTheTheme.js";
-import { getCurrentLocation } from "./js/getWeather.js" 
+import { getCurrentLocation } from "./js/getWeather.js";
 
 const toggle = document.getElementById("toggleDark");
-const timeEl = document.querySelector(".time");
+const timeEl = document.querySelector(".am-pm");
 const dateEl = document.querySelector(".date");
 
 document.body.addEventListener("load", getCurrentLocation());
@@ -43,12 +43,12 @@ setInterval(() => {
   const minutes = time.getMinutes();
   const ampm = hour >= 12 ? "PM" : "AM";
 
-  timeEl.innerHTML =
+  timeEl.textContent =
     (hoursIn12HrFormat < 10 ? "0" + hoursIn12HrFormat : hoursIn12HrFormat) +
     ":" +
     (minutes < 10 ? "0" + minutes : minutes) +
     " " +
     `${ampm}`;
 
-  dateEl.innerHTML = days[day] + ", " + date + " " + months[month];
+  dateEl.textContent = days[day] + ", " + date + " " + months[month];
 }, 1000);

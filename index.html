@@ -1,111 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <script src="index.js" defer type="module"></script>
-    <script src="https://kit.fontawesome.com/a692e1c39f.js" crossorigin="anonymous" defer></script>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1779/1779940.png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-</head>
+    <script src="index.js" type="module" defer></script>
+    <script
+      src="https://kit.fontawesome.com/a692e1c39f.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/1779/1779940.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+  </head>
 
-<body>
-    <div class="container">
-        <div class="weather_header">
-            <div class="search_container">
-                <form class="weather_search_form">
-                    <input type="text" placeholder="Search for a city..." class="weather_search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </form>
-                <i class="bi bi-brightness-high-fill" id="toggleDark"></i>
-            </div>
+  <body>
+    <header>
+      <div class="header-weather-wrapper">
+        <form class="weather-search-form">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            class="weather-search"
+            type="text"
+            name="city"
+            placeholder="Search for a city..."
+          />
+        </form>
+        <article class="change-theme">
+          <p class="theme-mode">Dark mode:</p>
+          <i class="bi bi-moon" id="toggleDark"></i>
+        </article>
+      </div>
+      <button type="button" class="location-btn">
+        <i class="bi bi-geo-alt-fill"></i>
+        Get current location
+      </button>
+    </header>
+
+    <main class="weather-main">
+      <section class="current-weather">
+        <h1 class="city"></h1>
+        <div class="date-time">
+          <p class="am-pm"></p>
+          <p class="date"></p>
         </div>
-         <button type="submit" class="location_btn"><i class="bi bi-geo-alt-fill"></i>Get current location</button>
-        <div class="weather_body">
-            <h1 class="weather_city"></h1>
-            <div class="weather_datetime">
-                <div class="time">
-                    <span id="am-pm"></span>
-                </div>
-                <div class="date"></div>
-            </div>
-            <div class="weather_units">
-                <span class="weather_unit_celsius">&#176C</span>
-                <span class="weather_unit_farenheit">&#176F</span>
-            </div>
-            <p class="weather_unit">Celsius</p>
-            <img class="weather_icon" alt="current weather icon">
-            <p class="weather_temperature"></p>
-            <div class="weather_name"></div>
-            <div class="weather_minmax">
-                <span class="weather_min"></span>
-                <span class="weather_max"></span>
-            </div>
+
+        <div class="weather-units">
+          <span class="unit-celsius">°C</span>
+          <span class="unit-farenheit">°F</span>
         </div>
 
-        <div class="weather_info">
-            <div class="weather_card_position">
-                <div class="weather_card">
-                    <i class="fa-solid fa-temperature-full"></i>
-                    <div>
-                        <p><b>Real Feel</b></p>
-                        <p class="weather_realfeel"></p>
-                    </div>
-                </div>
+        <p class="current-unit">
+          <i>Celsius</i>
+        </p>
+        <img class="weather-icon" alt="current weather icon" />
+        <p class="temp"></p>
+        <h2 class="weather-name"></h2>
 
-                <div class="weather_card">
-                    <i class="fa-solid fa-droplet"></i>
-                    <div>
-                        <p><b>Humidity</b></p>
-                        <p class="weather_humidity"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="weather_card_position">
-                <div class="weather_card">
-                    <i class="fa-solid fa-wind"></i>
-                    <div>
-                        <p><b>Wind</b></p>
-                        <p class="weather_wind"></p>
-                    </div>
-                </div>
-                <div class="weather_card">
-                    <i class="fa-solid fa-gauge-high"></i>
-                    <div>
-                        <p><b>Pressure</b></p>
-                        <p class="weather_pressure"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="weather_forecast">
-                <div class="weather_forecast_item">
-                    <div class="day_one"></div>
-                    <div class="day_one_temp"></div>
-                </div>
-                <div class="weather_forecast_item">
-                    <div class="day_two"></div>
-                    <div class="day_two_temp"></div>
-                </div>
-                <div class="weather_forecast_item">
-                    <div class="day_three"></div>
-                    <div class="day_three_temp"></div>
-                </div>
-                <div class="weather_forecast_item">
-                    <div class="day_four"></div>
-                    <div class="day_four_temp"></div>
-                </div>
-                <div class="weather_forecast_item">
-                    <div class="day_five"></div>
-                    <div class="w_icon_five"></div>
-                    <div></div>
-                    <div class="day_five_temp"></div>
-                </div>
-            </div>
+        <div class="temp-min-max">
+          <p class="temp-min"></p>
+          <p class="temp-max"></p>
         </div>
-</body>
+      </section>
 
+      <section class="current-weather-info">
+        <div class="weather-card-container">
+          <div class="weather-card">
+            <i class="fa-solid fa-temperature-full"></i>
+            <div>
+              <p>
+                <b>Real Feel</b>
+              </p>
+              <p class="weather-realfeel"></p>
+            </div>
+          </div>
+
+          <div class="weather-card">
+            <i class="fa-solid fa-droplet"></i>
+            <div>
+              <p>
+                <b>Humidity</b>
+              </p>
+              <p class="weather-humidity"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="weather-card-container">
+          <div class="weather-card">
+            <i class="fa-solid fa-wind"></i>
+            <div>
+              <p>
+                <b>Wind</b>
+              </p>
+              <p class="weather-wind"></p>
+            </div>
+          </div>
+
+          <div class="weather-card">
+            <i class="fa-solid fa-gauge-high"></i>
+            <div>
+              <p>
+                <b>Pressure</b>
+              </p>
+              <p class="weather-pressure"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="weather-forecast">
+      <h2 class="forecast-weather-title">5-day forecast:</h2>
+      <div class="weather-forecast-card-container">
+        <div class="weather-forecast-card">
+          <b>
+            <p class="day-one"></p>
+          </b>
+          <p class="day-one-temp"></p>
+        </div>
+
+        <div class="weather-forecast-card">
+          <b>
+            <p class="day-two"></p>
+          </b>
+          <p class="day-two-temp"></p>
+        </div>
+
+        <div class="weather-forecast-card">
+          <b>
+            <p class="day-three"></p>
+          </b>
+          <p class="day-three-temp"></p>
+        </div>
+
+        <div class="weather-forecast-card">
+          <b>
+            <p class="day-four"></p>
+          </b>
+          <p class="day-four-temp"></p>
+        </div>
+
+        <div class="weather-forecast-card">
+          <b>
+            <p class="day-five"></p>
+          </b>
+          <p class="day-five-temp"></p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

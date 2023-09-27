@@ -1,25 +1,25 @@
 export const displayForecastData = (data) => {
-  const day_one = document.querySelector(".day_one");
-  const day_two = document.querySelector(".day_two");
-  const day_three = document.querySelector(".day_three");
-  const day_four = document.querySelector(".day_four");
-  const day_five = document.querySelector(".day_five");
-  const day_one_temp = document.querySelector(".day_one_temp");
-  const day_two_temp = document.querySelector(".day_two_temp");
-  const day_three_temp = document.querySelector(".day_three_temp");
-  const day_four_temp = document.querySelector(".day_four_temp");
-  const day_five_temp = document.querySelector(".day_five_temp");
+  const day_one = document.querySelector(".day-one");
+  const day_two = document.querySelector(".day-two");
+  const day_three = document.querySelector(".day-three");
+  const day_four = document.querySelector(".day-four");
+  const day_five = document.querySelector(".day-five");
+  const day_one_temp = document.querySelector(".day-one-temp");
+  const day_two_temp = document.querySelector(".day-two-temp");
+  const day_three_temp = document.querySelector(".day-three-temp");
+  const day_four_temp = document.querySelector(".day-four-temp");
+  const day_five_temp = document.querySelector(".day-five-temp");
 
-  day_one.innerHTML = data.list[5].dt_txt;
-  day_two.innerHTML = data.list[13].dt_txt;
-  day_three.innerHTML = data.list[21].dt_txt;
-  day_four.innerHTML = data.list[29].dt_txt;
-  day_five.innerHTML = data.list[37].dt_txt;
-  day_one_temp.innerHTML = data.list[5].main.temp.toFixed() + "&#176";
-  day_two_temp.innerHTML = data.list[13].main.temp.toFixed() + "&#176";
-  day_three_temp.innerHTML = data.list[21].main.temp.toFixed() + "&#176";
-  day_four_temp.innerHTML = data.list[29].main.temp.toFixed() + "&#176";
-  day_five_temp.innerHTML = data.list[37].main.temp.toFixed() + "&#176";
+  day_one.textContent = data.list[5].dt_txt;
+  day_two.textContent = data.list[13].dt_txt;
+  day_three.textContent = data.list[21].dt_txt;
+  day_four.textContent = data.list[29].dt_txt;
+  day_five.textContent = data.list[37].dt_txt;
+  day_one_temp.textContent = data.list[5].main.temp.toFixed() + "°";
+  day_two_temp.textContent = data.list[13].main.temp.toFixed() + "°";
+  day_three_temp.textContent = data.list[21].main.temp.toFixed() + "°";
+  day_four_temp.textContent = data.list[29].main.temp.toFixed() + "°";
+  day_five_temp.textContent = data.list[37].main.temp.toFixed() + "°";
 
   const icon_one = document.createElement("img");
   const icon_two = document.createElement("img");

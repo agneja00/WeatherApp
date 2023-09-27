@@ -1,21 +1,21 @@
 import { displayForecastData } from "./displayForecastData.js";
 
-const weather_search = document.querySelector(".weather_search_form");
-const searchInput = document.querySelector(".weather_search");
-const city = document.querySelector(".weather_city");
-const weather_name = document.querySelector(".weather_name");
-const weather_temperature = document.querySelector(".weather_temperature");
-const weather_icon = document.querySelector(".weather_icon");
-const weather_unit = document.querySelector(".weather_unit");
-const celsius = document.querySelector(".weather_unit_celsius");
-const farenheit = document.querySelector(".weather_unit_farenheit");
-const weather_min = document.querySelector(".weather_min");
-const weather_max = document.querySelector(".weather_max");
-const weather_realfeel = document.querySelector(".weather_realfeel");
-const weather_humidity = document.querySelector(".weather_humidity");
-const weather_wind = document.querySelector(".weather_wind");
-const weather_pressure = document.querySelector(".weather_pressure");
-const location_btn = document.querySelector(".location_btn");
+const weather_search = document.querySelector(".weather-search-form");
+const searchInput = document.querySelector(".weather-search");
+const city = document.querySelector(".city");
+const weather_name = document.querySelector(".weather-name");
+const weather_temperature = document.querySelector(".temp");
+const weather_icon = document.querySelector(".weather-icon");
+const weather_unit = document.querySelector(".current-unit");
+const celsius = document.querySelector(".unit-celsius");
+const farenheit = document.querySelector(".unit-farenheit");
+const weather_min = document.querySelector(".temp-min");
+const weather_max = document.querySelector(".temp-max");
+const weather_realfeel = document.querySelector(".weather-realfeel");
+const weather_humidity = document.querySelector(".weather-humidity");
+const weather_wind = document.querySelector(".weather-wind");
+const weather_pressure = document.querySelector(".weather-pressure");
+const location_btn = document.querySelector(".location-btn");
 
 const baseUrl = "https://api.openweathermap.org/data/2.5";
 const API_KEY = "250ac7c5ffbe9aa051b541cce46679ac";
@@ -69,18 +69,20 @@ const getWeather = () => {
   fetch(`${baseUrl}/weather?q=${currCity}&appid=${API_KEY}&units=${units}`)
     .then((res) => res.json())
     .then((data) => {
-      city.innerHTML = `${data.name}, ${convertCountryCode(data.sys.country)}`;
-      weather_name.innerHTML = `${data.weather[0].main}`;
-      weather_temperature.innerHTML = `${data.main.temp.toFixed()}&#176`;
+      city.textContent = `${data.name}, ${convertCountryCode(
+        data.sys.country
+      )}`;
+      weather_name.textContent = `${data.weather[0].main}`;
+      weather_temperature.textContent = `${data.main.temp.toFixed()}°`;
       weather_icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
-      weather_min.innerHTML = `Min: ${data.main.temp_min.toFixed()}&#176`;
-      weather_max.innerHTML = `Max: ${data.main.temp_max.toFixed()}&#176`;
-      weather_realfeel.innerHTML = `${data.main.feels_like.toFixed()}&#176`;
-      weather_humidity.innerHTML = `${data.main.humidity}%`;
-      weather_wind.innerHTML = `${data.wind.speed} ${
+      weather_min.textContent = `Min: ${data.main.temp_min.toFixed()}°`;
+      weather_max.textContent = `Max: ${data.main.temp_max.toFixed()}°`;
+      weather_realfeel.textContent = `${data.main.feels_like.toFixed()}°`;
+      weather_humidity.textContent = `${data.main.humidity}%`;
+      weather_wind.textContent = `${data.wind.speed} ${
         units === "imperial" ? "mph" : "m/s"
       }`;
-      weather_pressure.innerHTML = `${data.main.pressure} hPa`;
+      weather_pressure.textContent = `${data.main.pressure} hPa`;
     })
     .catch((err) => console.error(err));
   getForecastData();

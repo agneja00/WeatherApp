@@ -1,49 +1,101 @@
 const body = document.querySelector("body");
-const container = document.querySelector(".container");
-const weather_search = document.querySelector(".weather_search_form");
-const location_btn = document.querySelector(".location_btn");
-const weather_card = document.querySelectorAll(".weather_card");
-const forecast_card = document.querySelectorAll(".weather_forecast_item");
+const weather_search = document.querySelector(".weather-search");
+const theme_mode = document.querySelector(".theme-mode");
+const location_btn = document.querySelector(".location-btn");
+const celsius = document.querySelector(".unit-celsius");
+const farenheit = document.querySelector(".unit-farenheit");
+const weather_card = document.querySelectorAll(".weather-card");
+const forecast_card = document.querySelectorAll(".weather-forecast-card");
 
 export const changeTheTheme = (e) => {
-  e.target.classList.toggle("bi-moon");
-  if (e.target.classList.toggle("bi-brightness-high-fill")) {
-    body.style.background = "#021624";
-    body.style.color = "white";
-    body.style.transition = "2s";
-    container.style.background = "#022035";
-    location_btn.style.background = "#022035";
-    location_btn.style.color = "white";
-    location_btn.style.borderBottom = "1px solid white";
-    weather_card[0].style.background = "#010c14";
-    weather_card[1].style.background = "#010c14";
-    weather_card[2].style.background = "#010c14";
-    weather_card[3].style.background = "#010c14";
-    forecast_card[0].style.background = "#010c14";
-    forecast_card[1].style.background = "#010c14";
-    forecast_card[2].style.background = "#010c14";
-    forecast_card[3].style.background = "#010c14";
-    forecast_card[4].style.background = "#010c14";
-    weather_search[0].style.background = "#010c14";
-    weather_search[0].style.color = "white";
-  } else {
-    body.style.background = "#0765a7";
+  e.target.classList.toggle("bi-brightness-high-fill");
+  if (e.target.classList.toggle("bi-moon")) {
+    body.style.backgroundColor = "#4accfe";
     body.style.color = "black";
     body.style.transition = "2s";
-    container.style.background = "#0a8de8";
-    location_btn.style.background = "#0a8de8";
+    weather_search.style.backgroundColor = "#0197d0";
+    theme_mode.textContent = "Dark mode:";
+    location_btn.style.backgroundColor = "#0197d0";
     location_btn.style.color = "black";
-    location_btn.style.borderBottom = "1px solid black";
-    weather_card[0].style.background = "#2fa4f6";
-    weather_card[1].style.background = "#2fa4f6";
-    weather_card[2].style.background = "#2fa4f6";
-    weather_card[3].style.background = "#2fa4f6";
-    forecast_card[0].style.background = "#2fa4f6";
-    forecast_card[1].style.background = "#2fa4f6";
-    forecast_card[2].style.background = "#2fa4f6";
-    forecast_card[3].style.background = "#2fa4f6";
-    forecast_card[4].style.background = "#2fa4f6";
-    weather_search[0].style.background = "#2fa4f6";
-    weather_search[0].style.color = "black";
+    weather_card[0].style.backgroundColor = "#01a3e1";
+    weather_card[1].style.backgroundColor = "#01a3e1";
+    weather_card[2].style.backgroundColor = "#01a3e1";
+    weather_card[3].style.backgroundColor = "#01a3e1";
+    forecast_card[0].style.backgroundColor = "#01a3e1";
+    forecast_card[1].style.backgroundColor = "#01a3e1";
+    forecast_card[2].style.backgroundColor = "#01a3e1";
+    forecast_card[3].style.backgroundColor = "#01a3e1";
+    forecast_card[4].style.backgroundColor = "#01a3e1";
+    weather_search.addEventListener("focus", (event) => {
+      event.target.style.backgroundColor = "#017eae";
+    });
+    weather_search.addEventListener("blur", (event) => {
+      event.target.style.backgroundColor = "#0197d0";
+    });
+    location_btn.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = "#017eae";
+    });
+    location_btn.addEventListener("mouseout", (event) => {
+      event.target.style.backgroundColor = "#0197d0";
+    });
+    celsius.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = "#0197d0";
+      event.target.style.borderRadius = "0.5rem";
+    });
+    celsius.addEventListener("mouseout", (event) => {
+      event.target.style.backgroundColor = "#4accfe";
+    });
+    farenheit.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = "#0197d0";
+      event.target.style.borderRadius = "0.5rem";
+    });
+    farenheit.addEventListener("mouseout", (event) => {
+      event.target.style.backgroundColor = "#4accfe";
+    });
+    // light
+  } else {
+    body.style.backgroundColor = "#00415a";
+    body.style.color = "white";
+    body.style.transition = "2s";
+    weather_search.style.backgroundColor = "#002838";
+    theme_mode.textContent = "Light mode:";
+    location_btn.style.backgroundColor = "#002838";
+    location_btn.style.color = "white";
+    weather_card[0].style.backgroundColor = "#001016";
+    weather_card[1].style.backgroundColor = "#001016";
+    weather_card[2].style.backgroundColor = "#001016";
+    weather_card[3].style.backgroundColor = "#001016";
+    forecast_card[0].style.backgroundColor = "#001016";
+    forecast_card[1].style.backgroundColor = "#001016";
+    forecast_card[2].style.backgroundColor = "#001016";
+    forecast_card[3].style.backgroundColor = "#001016";
+    forecast_card[4].style.backgroundColor = "#001016";
+    weather_search.addEventListener("focus", (event) => {
+      event.target.style.backgroundColor = "#001016";
+    });
+    weather_search.addEventListener("blur", (event) => {
+      event.target.style.backgroundColor = "#002838";
+    });
+    location_btn.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = "#001016";
+    });
+    location_btn.addEventListener("mouseout", (event) => {
+      event.target.style.backgroundColor = "#002838";
+    });
+    celsius.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = "#001016";
+      event.target.style.borderRadius = "0.5rem";
+    });
+    celsius.addEventListener("mouseout", (event) => {
+      event.target.style.backgroundColor = "#00415a";
+    });
+    farenheit.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = "#001016";
+      event.target.style.borderRadius = "0.5rem";
+    });
+    farenheit.addEventListener("mouseout", (event) => {
+      event.target.style.backgroundColor = "#00415a";
+    });
+    // dark
   }
 };
