@@ -40,7 +40,9 @@ body {
 }
 
 .weather-search:focus {
+  color: white;
   background-color: #017eae;
+  outline: none;
 }
 
 .change-theme {

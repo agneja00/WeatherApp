@@ -26,10 +26,10 @@ export const changeTheTheme = (e) => {
     forecast_card[2].style.backgroundColor = "#01a3e1";
     forecast_card[3].style.backgroundColor = "#01a3e1";
     forecast_card[4].style.backgroundColor = "#01a3e1";
-    weather_search.addEventListener("focus", (event) => {
+    weather_search.addEventListener("focusin", (event) => {
       event.target.style.backgroundColor = "#017eae";
     });
-    weather_search.addEventListener("blur", (event) => {
+    weather_search.addEventListener("focusout", (event) => {
       event.target.style.backgroundColor = "#0197d0";
     });
     location_btn.addEventListener("mouseover", (event) => {
@@ -37,20 +37,6 @@ export const changeTheTheme = (e) => {
     });
     location_btn.addEventListener("mouseout", (event) => {
       event.target.style.backgroundColor = "#0197d0";
-    });
-    celsius.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "#0197d0";
-      event.target.style.borderRadius = "0.5rem";
-    });
-    celsius.addEventListener("mouseout", (event) => {
-      event.target.style.backgroundColor = "#4accfe";
-    });
-    farenheit.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "#0197d0";
-      event.target.style.borderRadius = "0.5rem";
-    });
-    farenheit.addEventListener("mouseout", (event) => {
-      event.target.style.backgroundColor = "#4accfe";
     });
     // light
   } else {
@@ -70,10 +56,10 @@ export const changeTheTheme = (e) => {
     forecast_card[2].style.backgroundColor = "#001016";
     forecast_card[3].style.backgroundColor = "#001016";
     forecast_card[4].style.backgroundColor = "#001016";
-    weather_search.addEventListener("focus", (event) => {
+    weather_search.addEventListener("focusin", (event) => {
       event.target.style.backgroundColor = "#001016";
     });
-    weather_search.addEventListener("blur", (event) => {
+    weather_search.addEventListener("focusout", (event) => {
       event.target.style.backgroundColor = "#002838";
     });
     location_btn.addEventListener("mouseover", (event) => {
@@ -82,20 +68,5 @@ export const changeTheTheme = (e) => {
     location_btn.addEventListener("mouseout", (event) => {
       event.target.style.backgroundColor = "#002838";
     });
-    celsius.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "#001016";
-      event.target.style.borderRadius = "0.5rem";
-    });
-    celsius.addEventListener("mouseout", (event) => {
-      event.target.style.backgroundColor = "#00415a";
-    });
-    farenheit.addEventListener("mouseover", (event) => {
-      event.target.style.backgroundColor = "#001016";
-      event.target.style.borderRadius = "0.5rem";
-    });
-    farenheit.addEventListener("mouseout", (event) => {
-      event.target.style.backgroundColor = "#00415a";
-    });
-    // dark
   }
 };
