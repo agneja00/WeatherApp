@@ -20,11 +20,11 @@ body {
   position: relative;
 }
 
-.fa-magnifying-glass {
+.bi-search {
   position: absolute;
   left: 0.55rem;
-  top: 0.65rem;
-  font-size: 90%;
+  top: 0.6rem;
+  font-size: 85%;
 }
 
 .weather-search {
@@ -148,7 +148,7 @@ body {
   gap: 1rem;
 }
 
-.weather-card .fa-solid {
+.weather-card .bi {
   font-size: 1.5rem;
   margin-right: 1rem;
 }
