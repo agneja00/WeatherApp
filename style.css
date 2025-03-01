@@ -62,7 +62,7 @@ body {
   border: none;
   cursor: pointer;
   margin: 1.5rem auto;
-  padding: 0.55rem;
+  padding: 0.6rem;
   border-radius: 0.8rem;
 }
 
@@ -71,7 +71,7 @@ body {
 }
 
 .bi-geo-alt-fill {
-  padding-right: 0.4rem;
+  padding-right: 0.2rem;
 }
 
 .weather-main {
