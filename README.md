@@ -26,3 +26,6 @@ A simple, elegant weather application that provides real-time weather data for a
 
 - Website - [Agnieska Jackevic] (https://web-portfolio-agneja00.vercel.app/)
 - Linkedin - [Agnieska Jackevic] (https://www.linkedin.com/in/agnieska-jackevic-948830222/)
+
+![Screenshot](./assets/weather_app_desktop_light.png)
+![Screenshot](./assets/weather_app_mobile_dark.png)
