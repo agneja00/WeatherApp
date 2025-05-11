@@ -21,6 +21,8 @@ A simple, elegant weather application that provides real-time weather data for a
 - API: OpenWeatherMap;
 - Icons: Bootstrap;
 - Design: Responsive & mobile-friendly;
+- Vercel: deployment platform for fast, global hosting and automatic CI/CD integration.
+
 
 ## Author
 
