@@ -4,11 +4,11 @@ A simple, elegant weather application that provides real-time weather data for a
 
 ### Features
 
-- Current Weather: Temperature, real feel, humidity, wind speed, pressure.
-- Forecast: Multi-day weather predictions.
-- Location-Based: Auto-detects your current location or search anywhere.
-- Dark/Light Mode: Toggle between themes for better readability.
-- Unit Conversion: Switch between Celsius (°C) and Fahrenheit (°F).
+- **Current Weather**: Temperature, real feel, humidity, wind speed, pressure.
+- **Forecast**: Multi-day weather predictions.
+- **Location-Based**: Auto-detects your current location or search anywhere.
+- **Dark/Light Mode**: Toggle between themes for better readability.
+- **Unit Conversion**: Switch between Celsius (°C) and Fahrenheit (°F).
 
 ### Links
 
