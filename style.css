@@ -51,7 +51,7 @@ body {
 }
 
 #toggleDark {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   margin-left: 0.55rem;
 }
@@ -207,10 +207,6 @@ body {
 @media only screen and (min-width: 768px) {
   .weather-search {
     width: 35rem;
-  }
-
-  .theme-mode {
-    font-size: 1.2rem;
   }
 
   .weather-icon {
