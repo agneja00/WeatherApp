@@ -33,6 +33,12 @@ export const displayForecastData = (data) => {
   icon_four.src = `http://openweathermap.org/img/wn/${data.list[29].weather[0].icon}@2x.png`;
   icon_five.src = `http://openweathermap.org/img/wn/${data.list[37].weather[0].icon}@2x.png`;
 
+  icon_one.alt = "Weather Icon";
+  icon_two.alt = "Weather Icon";
+  icon_three.alt = "Weather Icon";
+  icon_four.alt = "Weather Icon";
+  icon_five.alt = "Weather Icon";
+
   day_one.append(icon_one);
   day_two.append(icon_two);
   day_three.append(icon_three);
