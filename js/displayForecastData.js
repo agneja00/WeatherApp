@@ -27,11 +27,11 @@ export const displayForecastData = (data) => {
   const icon_four = document.createElement("img");
   const icon_five = document.createElement("img");
 
-  icon_one.src = `http://openweathermap.org/img/wn/${data.list[5].weather[0].icon}@2x.png`;
-  icon_two.src = `http://openweathermap.org/img/wn/${data.list[13].weather[0].icon}@2x.png`;
-  icon_three.src = `http://openweathermap.org/img/wn/${data.list[21].weather[0].icon}@2x.png`;
-  icon_four.src = `http://openweathermap.org/img/wn/${data.list[29].weather[0].icon}@2x.png`;
-  icon_five.src = `http://openweathermap.org/img/wn/${data.list[37].weather[0].icon}@2x.png`;
+  icon_one.src = `https://openweathermap.org/img/wn/${data.list[5].weather[0].icon}@2x.png`;
+  icon_two.src = `https://openweathermap.org/img/wn/${data.list[13].weather[0].icon}@2x.png`;
+  icon_three.src = `https://openweathermap.org/img/wn/${data.list[21].weather[0].icon}@2x.png`;
+  icon_four.src = `https://openweathermap.org/img/wn/${data.list[29].weather[0].icon}@2x.png`;
+  icon_five.src = `https://openweathermap.org/img/wn/${data.list[37].weather[0].icon}@2x.png`;
 
   icon_one.alt = "Weather Icon";
   icon_two.alt = "Weather Icon";

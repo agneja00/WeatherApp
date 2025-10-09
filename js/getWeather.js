@@ -74,7 +74,7 @@ const getWeather = () => {
       )}`;
       weather_name.textContent = `${data.weather[0].main}`;
       weather_temperature.textContent = `${data.main.temp.toFixed()}°`;
-      weather_icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
+      weather_icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
       weather_min.textContent = `Min: ${data.main.temp_min.toFixed()}°`;
       weather_max.textContent = `Max: ${data.main.temp_max.toFixed()}°`;
       weather_realfeel.textContent = `${data.main.feels_like.toFixed()}°`;
