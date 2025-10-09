@@ -124,7 +124,9 @@ body {
 }
 
 .weather-icon {
-  width: 40%;
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
 }
 
 .temp {
@@ -216,7 +218,8 @@ body {
   }
 
   .weather-icon {
-    width: 14rem;
+    width: 12rem;
+    height: 12rem;
   }
 
   .forecast-weather-title {

@@ -1,47 +1,26 @@
 export const displayForecastData = (data) => {
-  const day_one = document.querySelector(".day-one");
-  const day_two = document.querySelector(".day-two");
-  const day_three = document.querySelector(".day-three");
-  const day_four = document.querySelector(".day-four");
-  const day_five = document.querySelector(".day-five");
-  const day_one_temp = document.querySelector(".day-one-temp");
-  const day_two_temp = document.querySelector(".day-two-temp");
-  const day_three_temp = document.querySelector(".day-three-temp");
-  const day_four_temp = document.querySelector(".day-four-temp");
-  const day_five_temp = document.querySelector(".day-five-temp");
+  const days = [
+    { day: ".day-one", temp: ".day-one-temp", index: 5 },
+    { day: ".day-two", temp: ".day-two-temp", index: 13 },
+    { day: ".day-three", temp: ".day-three-temp", index: 21 },
+    { day: ".day-four", temp: ".day-four-temp", index: 29 },
+    { day: ".day-five", temp: ".day-five-temp", index: 37 },
+  ];
 
-  day_one.textContent = data.list[5].dt_txt;
-  day_two.textContent = data.list[13].dt_txt;
-  day_three.textContent = data.list[21].dt_txt;
-  day_four.textContent = data.list[29].dt_txt;
-  day_five.textContent = data.list[37].dt_txt;
-  day_one_temp.textContent = data.list[5].main.temp.toFixed() + "°";
-  day_two_temp.textContent = data.list[13].main.temp.toFixed() + "°";
-  day_three_temp.textContent = data.list[21].main.temp.toFixed() + "°";
-  day_four_temp.textContent = data.list[29].main.temp.toFixed() + "°";
-  day_five_temp.textContent = data.list[37].main.temp.toFixed() + "°";
+  days.forEach(({ day, temp, index }) => {
+    const dayEl = document.querySelector(day);
+    const tempEl = document.querySelector(temp);
 
-  const icon_one = document.createElement("img");
-  const icon_two = document.createElement("img");
-  const icon_three = document.createElement("img");
-  const icon_four = document.createElement("img");
-  const icon_five = document.createElement("img");
+    dayEl.textContent = data.list[index].dt_txt;
+    tempEl.textContent = data.list[index].main.temp.toFixed() + "°";
 
-  icon_one.src = `https://openweathermap.org/img/wn/${data.list[5].weather[0].icon}@2x.png`;
-  icon_two.src = `https://openweathermap.org/img/wn/${data.list[13].weather[0].icon}@2x.png`;
-  icon_three.src = `https://openweathermap.org/img/wn/${data.list[21].weather[0].icon}@2x.png`;
-  icon_four.src = `https://openweathermap.org/img/wn/${data.list[29].weather[0].icon}@2x.png`;
-  icon_five.src = `https://openweathermap.org/img/wn/${data.list[37].weather[0].icon}@2x.png`;
+    const icon = document.createElement("img");
+    icon.src = `https://openweathermap.org/img/wn/${data.list[index].weather[0].icon}@2x.png`;
+    icon.alt = "Weather Icon";
+    icon.width = 80;
+    icon.height = 80;
+    icon.loading = "lazy";
 
-  icon_one.alt = "Weather Icon";
-  icon_two.alt = "Weather Icon";
-  icon_three.alt = "Weather Icon";
-  icon_four.alt = "Weather Icon";
-  icon_five.alt = "Weather Icon";
-
-  day_one.append(icon_one);
-  day_two.append(icon_two);
-  day_three.append(icon_three);
-  day_four.append(icon_four);
-  day_five.append(icon_five);
+    dayEl.append(icon);
+  });
 };
