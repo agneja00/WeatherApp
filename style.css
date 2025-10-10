@@ -93,7 +93,7 @@ body {
 }
 
 .city {
-  font-size: xx-large;
+  font-size: 2rem;
 }
 
 .date-time {
@@ -202,7 +202,7 @@ body {
 .day-three,
 .day-four,
 .day-five {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .footer {
