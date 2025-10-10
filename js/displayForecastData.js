@@ -1,4 +1,4 @@
-export const displayForecastData = (data) => {
+export const displayForecastData = (data, units) => {
   const days = [
     { day: ".day-one", temp: ".day-one-temp", index: 5 },
     { day: ".day-two", temp: ".day-two-temp", index: 13 },
@@ -12,7 +12,8 @@ export const displayForecastData = (data) => {
     const tempEl = document.querySelector(temp);
 
     dayEl.textContent = data.list[index].dt_txt;
-    tempEl.textContent = data.list[index].main.temp.toFixed() + "°";
+    tempEl.textContent =
+      data.list[index].main.temp.toFixed() + (units === "metric" ? "°C" : "°F");
 
     const icon = document.createElement("img");
     icon.src = `https://openweathermap.org/img/wn/${data.list[index].weather[0].icon}@2x.png`;

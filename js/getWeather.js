@@ -2,96 +2,96 @@ import { displayForecastData } from "./displayForecastData.js";
 
 const weather_search = document.querySelector(".weather-search-form");
 const searchInput = document.querySelector(".weather-search");
-const city = document.querySelector(".city");
-const weather_name = document.querySelector(".weather-name");
-const weather_temperature = document.querySelector(".temp");
-const weather_icon = document.querySelector(".weather-icon");
-const weather_unit = document.querySelector(".current-unit");
-const celsius = document.querySelector(".unit-celsius");
-const farenheit = document.querySelector(".unit-farenheit");
-const weather_min = document.querySelector(".temp-min");
-const weather_max = document.querySelector(".temp-max");
-const weather_realfeel = document.querySelector(".weather-realfeel");
-const weather_humidity = document.querySelector(".weather-humidity");
-const weather_wind = document.querySelector(".weather-wind");
-const weather_pressure = document.querySelector(".weather-pressure");
-const location_btn = document.querySelector(".location-btn");
+const cityEl = document.querySelector(".city");
+const weatherNameEl = document.querySelector(".weather-name");
+const tempEl = document.querySelector(".temp");
+const iconEl = document.querySelector(".weather-icon");
+const unitEl = document.querySelector(".current-unit");
+const celsiusBtn = document.querySelector(".unit-celsius");
+const fahrenheitBtn = document.querySelector(".unit-farenheit");
+const tempMinEl = document.querySelector(".temp-min");
+const tempMaxEl = document.querySelector(".temp-max");
+const realFeelEl = document.querySelector(".weather-realfeel");
+const humidityEl = document.querySelector(".weather-humidity");
+const windEl = document.querySelector(".weather-wind");
+const pressureEl = document.querySelector(".weather-pressure");
+const locationBtn = document.querySelector(".location-btn");
 
-const baseUrl = "https://api.openweathermap.org/data/2.5";
+const BASE_URL = "https://api.openweathermap.org/data/2.5";
 const API_KEY = "250ac7c5ffbe9aa051b541cce46679ac";
 
-let currCity = "Bali";
+let currentCity = "Bali";
 let units = "metric";
 
-function convertCountryCode(country) {
-  let regionNames = new Intl.DisplayNames(["en"], { type: "region" });
-  return regionNames.of(country);
+function convertCountryCode(code) {
+  return new Intl.DisplayNames(["en"], { type: "region" }).of(code);
 }
 
 weather_search.addEventListener("submit", (e) => {
-  let search = searchInput;
   e.preventDefault();
-  currCity = search.value;
-  getWeather();
-  getForecastData();
-  search.value = "";
+  currentCity = searchInput.value;
+  fetchWeather();
+  fetchForecast();
+  searchInput.value = "";
 });
 
-celsius.addEventListener("click", () => {
+celsiusBtn.addEventListener("click", () => {
   if (units !== "metric") {
     units = "metric";
-    weather_unit.textContent = "Celsius";
-    getWeather();
+    unitEl.textContent = "Celsius";
+    fetchWeather();
   }
 });
 
-farenheit.addEventListener("click", () => {
+fahrenheitBtn.addEventListener("click", () => {
   if (units !== "imperial") {
     units = "imperial";
-    weather_unit.textContent = "Farenheit";
-    getWeather();
+    unitEl.textContent = "Fahrenheit";
+    fetchWeather();
   }
 });
 
 export const getCurrentLocation = () => {
   fetch("https://api.db-ip.com/v2/free/self")
     .then((res) => res.json())
-    .then((dataLocation) => {
-      currCity = dataLocation.city;
-      getWeather();
+    .then((data) => {
+      currentCity = data.city;
+      fetchWeather();
     })
-    .catch((err) => console.error(err));
+    .catch(console.error);
 };
 
-location_btn.addEventListener("click", getCurrentLocation);
+locationBtn.addEventListener("click", getCurrentLocation);
 
-const getWeather = () => {
-  fetch(`${baseUrl}/weather?q=${currCity}&appid=${API_KEY}&units=${units}`)
+const fetchWeather = () => {
+  fetch(`${BASE_URL}/weather?q=${currentCity}&appid=${API_KEY}&units=${units}`)
     .then((res) => res.json())
     .then((data) => {
-      city.textContent = `${data.name}, ${convertCountryCode(
+      const unitSymbol = units === "metric" ? "°C" : "°F";
+
+      cityEl.textContent = `${data.name}, ${convertCountryCode(
         data.sys.country
       )}`;
-      weather_name.textContent = `${data.weather[0].main}`;
-      weather_temperature.textContent = `${data.main.temp.toFixed()}°`;
-      weather_icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
-      weather_min.textContent = `Min: ${data.main.temp_min.toFixed()}°`;
-      weather_max.textContent = `Max: ${data.main.temp_max.toFixed()}°`;
-      weather_realfeel.textContent = `${data.main.feels_like.toFixed()}°`;
-      weather_humidity.textContent = `${data.main.humidity}%`;
-      weather_wind.textContent = `${data.wind.speed} ${
+      weatherNameEl.textContent = data.weather[0].main;
+      tempEl.textContent = `${data.main.temp.toFixed()}${unitSymbol}`;
+      iconEl.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
+      tempMinEl.textContent = `Min: ${data.main.temp_min.toFixed()}${unitSymbol}`;
+      tempMaxEl.textContent = `Max: ${data.main.temp_max.toFixed()}${unitSymbol}`;
+      realFeelEl.textContent = `${data.main.feels_like.toFixed()}${unitSymbol}`;
+      humidityEl.textContent = `${data.main.humidity}%`;
+      windEl.textContent = `${data.wind.speed} ${
         units === "imperial" ? "mph" : "m/s"
       }`;
-      weather_pressure.textContent = `${data.main.pressure} hPa`;
+      pressureEl.textContent = `${data.main.pressure} hPa`;
     })
-    .catch((err) => console.error(err));
-  getForecastData();
+    .catch(console.error);
+
+  fetchForecast();
 };
 
-const getForecastData = () => {
-  fetch(`${baseUrl}/forecast?q=${currCity}&appid=${API_KEY}&units=${units}`)
+const fetchForecast = () => {
+  fetch(`${BASE_URL}/forecast?q=${currentCity}&appid=${API_KEY}&units=${units}`)
     .then((res) => res.json())
-    .then((data) => {
-      displayForecastData(data);
-    });
+    .then((data) => displayForecastData(data, units))
+    .catch(console.error);
 };
