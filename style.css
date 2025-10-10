@@ -235,6 +235,14 @@ body {
     width: 17.6rem;
   }
 
+  .day-one,
+  .day-two,
+  .day-three,
+  .day-four,
+  .day-five {
+    margin-bottom: 0.35rem;
+  }
+
   .footer {
     font-size: 100%;
   }
