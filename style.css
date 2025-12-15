@@ -17,7 +17,7 @@ body {
 }
 
 .wrapper {
-  margin: 1rem;
+  padding: 1.2rem;
 }
 
 .header-weather-wrapper {
@@ -209,13 +209,11 @@ body {
 .footer {
   font-size: 80%;
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
 }
 
 @media only screen and (min-width: 768px) {
   .wrapper {
-    margin: 1.5rem 2rem;
+    padding: 1.5rem 2rem;
   }
 
   .weather-search {
