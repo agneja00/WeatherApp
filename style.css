@@ -192,9 +192,9 @@ body {
 }
 
 .weather-forecast-card {
+  font-size: 90%;
   flex-direction: column;
-  justify-content: center;
-  width: 10rem;
+  width: calc(50% - 0.5rem);
   text-align: center;
 }
 
